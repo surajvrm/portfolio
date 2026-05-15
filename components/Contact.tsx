@@ -58,7 +58,7 @@ export function Contact() {
                 <div
                   key={c.label}
                   className="flex items-center justify-between py-4 gap-4"
-                >
+                >Start a conversation
                   <span className="text-sm text-[var(--color-text-muted)] font-medium">
                     {c.label}
                   </span>

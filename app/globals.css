@@ -1,0 +1,61 @@
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f7f6f2;
+  --color-surface: #f9f8f5;
+  --color-surface-2: #fbfbf9;
+  --color-surface-offset: #efede7;
+  --color-border: #d8d3cb;
+  --color-divider: #ddd8d0;
+  --color-text: #26231c;
+  --color-text-muted: #6f6d66;
+  --color-text-faint: #a5a39d;
+  --color-primary: #01696f;
+  --color-primary-hover: #0c4e54;
+  --color-primary-soft: #dce9e7;
+}
+
+.dark {
+  --color-bg: #151412;
+  --color-surface: #1c1b19;
+  --color-surface-2: #22211f;
+  --color-surface-offset: #2a2826;
+  --color-border: #3a3834;
+  --color-divider: #2d2b28;
+  --color-text: #e3dfd8;
+  --color-text-muted: #afaaa1;
+  --color-text-faint: #79746c;
+  --color-primary: #61a7b1;
+  --color-primary-hover: #84bbc2;
+  --color-primary-soft: #20363a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Satoshi', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}

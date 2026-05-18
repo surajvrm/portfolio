@@ -10,17 +10,13 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["'Cabinet Grotesk'", "sans-serif"],
-        body: ["'Satoshi'", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
       },
       colors: {
         primary: {
-          DEFAULT: "#01696f",
-          hover: "#0c4e54",
-          soft: "#dce9e7",
-          dark: "#61a7b1",
-          "dark-hover": "#84bbc2",
-          "dark-soft": "#20363a",
+          DEFAULT: "var(--color-primary)",
+          hover: "var(--color-primary-hover)",
+          soft: "var(--color-primary-soft)",
         },
       },
       animation: {

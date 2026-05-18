@@ -9,70 +9,47 @@ const contactItems = [
     label: "Phone",
     value: siteData.contact.phone,
     href: siteData.contact.phoneHref,
-    icon: <Phone size={15} />,
+    icon: <Phone size={18} />,
   },
   {
     label: "LinkedIn",
     value: siteData.contact.linkedin,
     href: siteData.contact.linkedinHref,
-    icon: <Linkedin size={15} />,
+    icon: <Linkedin size={18} />,
   },
   {
     label: "Upwork",
     value: siteData.contact.upwork,
     href: siteData.contact.upworkHref,
-    icon: <ExternalLink size={15} />,
+    icon: <ExternalLink size={18} />,
   },
 ];
 
 export function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="max-w-[1180px] mx-auto px-4">
+    <section id="contact" className="py-20 md:py-32">
+      <div className="max-w-[800px] mx-auto px-4 text-center">
         <FadeIn>
-          <div
-            className="rounded-2xl border p-6 md:p-10"
-            style={{
-              background: "var(--color-surface)",
-              borderColor: "var(--color-border)",
-            }}
-          >
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-3"
-              style={{ color: "var(--color-primary)" }}
-            >
-              Contact
-            </p>
-            <h2
-              className="text-3xl md:text-4xl font-black mb-3 text-[var(--color-text)] max-w-[28ch]"
-              style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
-            >
-              Open to agency collaborations and Shopify projects
+          <div className="rounded-3xl border border-[var(--color-border)] p-10 md:p-16 bg-[var(--color-surface)]">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text)] mb-4">
+              Let's build together
             </h2>
-            <p className="text-[var(--color-text-muted)] mb-8 max-w-[52ch] text-sm leading-relaxed">
-              For freelance, white-label, or direct Shopify work, the best way to reach me is through phone, LinkedIn, or Upwork.
+            <p className="text-[var(--color-text-muted)] text-base md:text-lg mx-auto leading-relaxed mb-10 max-w-xl">
+              Open to agency collaborations, white-label development, and direct Shopify projects. I'm ready to bring your e-commerce vision to life.
             </p>
 
-            <div className="divide-y" style={{ borderColor: "var(--color-divider)" }}>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               {contactItems.map((c) => (
-                <div
+                <a
                   key={c.label}
-                  className="flex items-center justify-between py-4 gap-4"
-                >Start a conversation
-                  <span className="text-sm text-[var(--color-text-muted)] font-medium">
-                    {c.label}
-                  </span>
-                  <a
-                    href={c.href}
-                    target={c.href.startsWith("http") ? "_blank" : undefined}
-                    rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold transition-colors hover:opacity-70"
-                    style={{ color: "var(--color-primary)" }}
-                  >
-                    {c.icon}
-                    {c.value}
-                  </a>
-                </div>
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-2)] hover:bg-[var(--color-surface-offset)] hover:border-[var(--color-divider)] transition-all text-sm font-semibold text-[var(--color-text)] hover:-translate-y-0.5 shadow-sm"
+                >
+                  {c.icon}
+                  {c.value}
+                </a>
               ))}
             </div>
           </div>

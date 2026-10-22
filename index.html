@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suraj Verma | Senior Shopify Developer</title>
+<meta name="description" content="Suraj Verma, Senior Shopify Developer and E-Commerce Specialist with 12+ years of experience. Custom themes, checkout extensions, apps, integrations and live store projects.">
+<style>
+  :root {
+    --bg: #f7f8f6; --surface: #ffffff; --text: #151a17; --muted: #5a625d;
+    --accent: #1f7a4d; --accent-ink: #ffffff; --border: #dfe4e0; --glow: rgba(31,122,77,.08);
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #0b0f0d; --surface: #131915; --text: #ecf1ed; --muted: #94a09a;
+    --accent: #5fe3a1; --accent-ink: #07110b; --border: #232c27; --glow: rgba(95,227,161,.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: var(--mono); }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10; background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 700; color: var(--text); }
+  .logo:hover { text-decoration: none; }
+  .logo .braces { color: var(--accent); font-size: 1.15rem; letter-spacing: 1px; }
+  .logo .mono-badge { background: var(--accent); color: var(--accent-ink); border-radius: 6px; padding: 1px 7px; font-size: 0.85rem; letter-spacing: 0.5px; }
+  .logo .name { font-size: 0.92rem; letter-spacing: 1.5px; }
+  .foot-logo { margin-bottom: 12px; }
+  @media (max-width: 420px) { .logo .name { display: none; } }
+  .nav .logo { margin-right: auto; }
+  .nav ul { display: flex; gap: 22px; list-style: none; align-items: center; margin-right: 18px; }
+  .nav ul a { color: var(--muted); font-size: 0.9rem; }
+  .nav ul a:hover { color: var(--text); text-decoration: none; }
+  #theme {
+    background: none; border: 1px solid var(--border); color: var(--text);
+    border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 0.85rem; font-family: var(--mono);
+  }
+  .hire { background: var(--accent); color: var(--accent-ink) !important; padding: 6px 14px; border-radius: 8px; font-weight: 600; }
+
+  section { padding: 72px 0; scroll-margin-top: 70px; }
+  .eyebrow { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; }
+  h2 { font-size: 1.8rem; margin-bottom: 30px; line-height: 1.2; }
+
+  .hero { padding: 96px 0 56px; background: radial-gradient(ellipse at 20% 0%, var(--glow), transparent 60%); }
+  .hero h1 { font-size: clamp(2.3rem, 6vw, 3.7rem); line-height: 1.1; margin-bottom: 18px; max-width: 800px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); max-width: 640px; font-size: 1.1rem; margin-bottom: 28px; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 22px; border-radius: 8px; font-weight: 600;
+    border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn:hover { text-decoration: none; opacity: 0.9; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-top: 48px; }
+  .stat { border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 16px 18px; }
+  .stat b { display: block; font-size: 1.8rem; line-height: 1.2; color: var(--accent); font-family: var(--mono); }
+  .stat span { color: var(--muted); font-size: 0.88rem; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px; transition: transform .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { font-size: 1.1rem; }
+  .card p { color: var(--muted); font-size: 0.93rem; flex: 1; }
+  .card .kind { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
+  .card a.visit { font-weight: 600; font-size: 0.92rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; }
+
+  .skill-groups { display: grid; gap: 18px; }
+  .skill-row { display: grid; grid-template-columns: 180px 1fr; gap: 14px; align-items: start; }
+  .skill-row h3 { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); font-weight: 500; padding-top: 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { border: 1px solid var(--border); background: var(--surface); padding: 5px 13px; border-radius: 999px; font-size: 0.9rem; }
+
+  .timeline { border-left: 2px solid var(--border); padding-left: 24px; display: grid; gap: 32px; margin-left: 4px; }
+  .job { position: relative; }
+  .job::before { content: ""; position: absolute; left: -31px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .job h3 { font-size: 1.1rem; }
+  .job .co { color: var(--accent); font-weight: 600; font-size: 0.95rem; }
+  .job .when { font-family: var(--mono); color: var(--muted); font-size: 0.8rem; margin-bottom: 8px; }
+  .job ul { color: var(--muted); padding-left: 18px; font-size: 0.95rem; display: grid; gap: 4px; }
+
+  .edu .card p { flex: 0; }
+
+  .contact { text-align: center; }
+  .contact h2 { font-size: 2.2rem; }
+  .contact p { color: var(--muted); max-width: 540px; margin: 0 auto 26px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 28px 0; border-top: 1px solid var(--border); font-family: var(--mono); }
+
+  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 760px) {
+    .skill-row { grid-template-columns: 1fr; gap: 6px; }
+    .nav .wrap { height: auto; flex-wrap: wrap; padding-top: 10px; padding-bottom: 6px; row-gap: 4px; }
+    .logo { order: 1; }
+    #theme { order: 2; }
+    .nav ul.links { order: 3; width: 100%; gap: 15px; overflow-x: auto; white-space: nowrap; padding: 6px 0 8px; scrollbar-width: none; }
+    .nav ul.links::-webkit-scrollbar { display: none; }
+    .nav ul.links a { font-size: 0.86rem; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Suraj Verma, home"><span class="braces" aria-hidden="true">{ }</span><span class="mono-badge" aria-hidden="true">SV</span><span class="name">SURAJ VERMA</span></a>
+    <ul class="links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Timeline</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme" aria-label="Toggle dark mode">Light</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">// Senior Shopify Developer &amp; E-Commerce Specialist</p>
+      <h1>I build Shopify stores that <em>perform</em> and convert.</h1>
+      <p>12+ years of experience delivering custom themes, checkout UI extensions, Shopify apps and payment, shipping, ERP and CRM integrations. Based in Mohali, India, and open to new opportunities.</p>
+      <div class="btns">
+        <a class="btn" href="#projects">View projects</a>
+        <a class="btn ghost" href="Suraj_Verma_CV.docx" download>Download CV</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>12+</b><span>years in web development</span></div>
+        <div class="stat"><b>50+</b><span>Shopify storefronts built</span></div>
+        <div class="stat"><b>12</b><span>live stores featured below</span></div>
+        <div class="stat"><b>Plus</b><span>Shopify Plus, apps &amp; checkout</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap">
+      <p class="eyebrow">// expertise</p>
+      <h2>What I do</h2>
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Custom Shopify themes</h3>
+          <p>Tailored storefronts and shopping experiences, built from scratch or customized, with 50+ stores delivered.</p>
+          <div class="tags"><span>Liquid</span><span>JavaScript</span><span>HTML5 / CSS3</span></div>
+        </article>
+        <article class="card reveal">
+          <h3>Checkout and Shopify Plus</h3>
+          <p>Custom checkout experiences through checkout UI extensions for Shopify and Shopify Plus merchants.</p>
+          <div class="tags"><span>Checkout UI Extensions</span><span>Shopify Plus</span><span>React</span></div>
+        </article>
+        <article class="card reveal">
+          <h3>Apps and APIs</h3>
+          <p>Custom Shopify apps, product feed workflows and storefront experiences powered by the Storefront and Admin APIs.</p>
+          <div class="tags"><span>Storefront API</span><span>Admin API</span><span>GraphQL</span></div>
+        </article>
+        <article class="card reveal">
+          <h3>Payments and integrations</h3>
+          <p>Payment gateways, shipping, inventory, marketing tools and ERP / CRM systems connected to the store.</p>
+          <div class="tags"><span>Stripe</span><span>Razorpay</span><span>ERP / CRM</span></div>
+        </article>
+        <article class="card reveal">
+          <h3>Performance and conversion</h3>
+          <p>Faster storefronts and smoother buying journeys that help stores convert better.</p>
+          <div class="tags"><span>Speed</span><span>UX</span><span>Conversion</span></div>
+        </article>
+        <article class="card reveal">
+          <h3>Backend and other platforms</h3>
+          <p>PHP and Laravel backends, plus BigCommerce, Squarespace and CodeIgniter projects.</p>
+          <div class="tags"><span>PHP</span><span>Laravel</span><span>BigCommerce</span><span>Squarespace</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">// selected projects</p>
+      <h2>Live stores I've worked on</h2>
+      <div class="grid">
+
+        <article class="card reveal">
+          <span class="kind">CUSTOM SHOPIFY APP</span>
+          <h3>Akshay Gems Crystal</h3>
+          <p>Built a custom inventory app for this store. It checks stock for every product daily, automatically creates purchase orders and shares them with the supplier. When the supplier completes a PO, inventory is increased automatically, so stock stays up to date without manual work.</p>
+          <div class="tags"><span>Shopify App</span><span>Inventory Automation</span><span>Purchase Orders</span></div>
+          <a class="visit" href="https://akshaygemscrystal.com/" target="_blank" rel="noopener">akshaygemscrystal.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">AUTOMOTIVE / CUSTOM CART</span>
+          <h3>Open Throttle</h3>
+          <p>Shopify store for aftermarket BMW parts and accessories. Customized the theme and sections, and built a custom cart drawer with offers such as "add more, get a free gift".</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Custom Cart Drawer</span><span>Free Gift Offers</span></div>
+          <a class="visit" href="https://openthrottle.co/" target="_blank" rel="noopener">openthrottle.co &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">SUPPLEMENTS / LONGEVITY</span>
+          <h3>Augment Life</h3>
+          <p>Shopify store for longevity and healthy-aging supplements, with curated stacks, a subscription option and region-based free-shipping thresholds.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Subscriptions</span></div>
+          <a class="visit" href="https://augmentlifeshop.com" target="_blank" rel="noopener">augmentlifeshop.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">SKINCARE / BEAUTY</span>
+          <h3>Skinora</h3>
+          <p>Storefront for a French-formulated skincare brand, with video product cards, shopping by skin concern and a bestsellers section.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Custom sections</span></div>
+          <a class="visit" href="https://skinora.in" target="_blank" rel="noopener">skinora.in &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">BOOKS / RETAIL</span>
+          <h3>CUM Books</h3>
+          <p>Shopify storefront for a South African Christian bookstore, with click-and-collect and courier delivery options, loyalty-style deals and a wishlist.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Delivery options</span></div>
+          <a class="visit" href="https://cumbooks.co.za/" target="_blank" rel="noopener">cumbooks.co.za &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">FASHION / INTIMATES</span>
+          <h3>The Bra Lab</h3>
+          <p>Shopify store for interchangeable bras, with a bra builder, size converter and curated sets.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>JavaScript</span></div>
+          <a class="visit" href="https://thebralab.com/" target="_blank" rel="noopener">thebralab.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">ATHLEISURE / FASHION</span>
+          <h3>Levate Label</h3>
+          <p>Australian athleisure storefront with bundle offers, a VIP access program, buy-now-pay-later options and a fabrics guide.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Bundles</span></div>
+          <a class="visit" href="https://levatelabel.com/" target="_blank" rel="noopener">levatelabel.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">SKINCARE / MASKS</span>
+          <h3>helloSKIN</h3>
+          <p>Shopify storefront for a hydrogel eye, face and lip mask brand, with a bundles and gifting collection, gift cards and a wholesale page.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>Bundles</span></div>
+          <a class="visit" href="https://thehelloskinco.com/" target="_blank" rel="noopener">thehelloskinco.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">BEAUTY</span>
+          <h3>ForChics</h3>
+          <p>Shopify store for a beauty brand, covering theme development, speed optimisation and upsell flows.</p>
+          <div class="tags"><span>Shopify 2.0</span><span>Liquid</span><span>Performance</span></div>
+          <a class="visit" href="https://forchics.com" target="_blank" rel="noopener">forchics.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">PETS / RETAIL</span>
+          <h3>Tipaw</h3>
+          <p>Performance-focused Shopify storefront with clean code, lazy-loaded assets and AJAX-driven interactions.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>AJAX API</span></div>
+          <a class="visit" href="https://store.tipaw.com" target="_blank" rel="noopener">store.tipaw.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">CUSTOM FEATURE</span>
+          <h3>Bleame</h3>
+          <p>Shopify store with a custom "Build a Box" bundle experience built in JavaScript and Liquid, without relying on apps.</p>
+          <div class="tags"><span>Custom JS</span><span>Liquid</span><span>AJAX Cart API</span></div>
+          <a class="visit" href="https://bleame.com" target="_blank" rel="noopener">bleame.com &rarr;</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="kind">SHOPIFY PLUS</span>
+          <h3>Vue Swiss</h3>
+          <p>Shopify Plus store with checkout-level logic, including automatic gift and discount handling.</p>
+          <div class="tags"><span>Shopify Plus</span><span>Functions</span><span>Liquid</span></div>
+          <a class="visit" href="https://vueswiss.com" target="_blank" rel="noopener">vueswiss.com &rarr;</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="eyebrow">// professional journey</p>
+      <h2>Timeline</h2>
+      <div class="timeline">
+        <div class="job reveal">
+          <h3>Senior Shopify Developer &amp; E-Commerce Specialist</h3>
+          <div class="co">Code Corners IT Solutions Pvt Ltd</div>
+          <div class="when">JAN 2022 - PRESENT</div>
+          <ul>
+            <li>Lead end-to-end Shopify development for e-commerce clients, delivering custom themes, checkout UI extensions and storefront performance improvements.</li>
+            <li>Build tailored shopping experiences using Liquid, Storefront API, GraphQL, JavaScript, React and Vue.js.</li>
+            <li>Develop checkout UI extensions, Stripe and Razorpay integrations, product feed workflows and custom Shopify apps.</li>
+            <li>Manage client relationships from discovery and scoping through launch and post-launch support.</li>
+          </ul>
+        </div>
+        <div class="job reveal">
+          <h3>Shopify Developer &amp; Web Developer</h3>
+          <div class="co">Code Corners IT Solutions Pvt Ltd</div>
+          <div class="when">JAN 2018 - DEC 2021</div>
+          <ul>
+            <li>Built and customized 50+ Shopify storefronts using Liquid, JavaScript and third-party app integrations.</li>
+            <li>Integrated shipping, inventory and marketing tools to support scalable e-commerce operations.</li>
+            <li>Delivered PHP-based projects alongside Squarespace and BigCommerce solutions.</li>
+            <li>Managed delivery independently, from implementation and testing to client handover and support.</li>
+          </ul>
+        </div>
+        <div class="job reveal">
+          <h3>Web Developer</h3>
+          <div class="co">Code Corners IT Solutions Pvt Ltd</div>
+          <div class="when">AUG 2015 - DEC 2017</div>
+          <ul>
+            <li>Developed client websites using HTML5, CSS3, JavaScript, jQuery, PHP and CodeIgniter.</li>
+            <li>Built dynamic, database-driven sites and began moving into e-commerce with Shopify, Squarespace and BigCommerce projects.</li>
+          </ul>
+        </div>
+        <div class="job reveal">
+          <h3>Web Developer</h3>
+          <div class="co">RV Technologies Softwares Pvt. Ltd.</div>
+          <div class="when">JUL 2013 - JUL 2015</div>
+          <ul>
+            <li>Started my career as a PHP developer building dynamic websites with Core PHP.</li>
+            <li>Implemented Joomla templates and extensions, completed Magento tasks and did early Shopify theming.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <p class="eyebrow">// stack &amp; education</p>
+      <h2>Technical skills</h2>
+      <div class="skill-groups">
+        <div class="skill-row"><h3>platforms</h3><div class="chips"><span>Shopify</span><span>Shopify Plus</span><span>BigCommerce</span><span>Squarespace</span><span>Magento (basic)</span></div></div>
+        <div class="skill-row"><h3>shopify</h3><div class="chips"><span>Liquid</span><span>Storefront API</span><span>Admin API</span><span>GraphQL</span><span>REST API</span><span>Checkout UI Extensions</span><span>App development</span></div></div>
+        <div class="skill-row"><h3>frontend</h3><div class="chips"><span>HTML5</span><span>CSS3</span><span>JavaScript (ES6+)</span><span>jQuery</span><span>React</span><span>Vue.js</span></div></div>
+        <div class="skill-row"><h3>backend</h3><div class="chips"><span>PHP</span><span>Laravel</span><span>CodeIgniter</span><span>Core PHP</span><span>RESTful APIs</span></div></div>
+        <div class="skill-row"><h3>integrations</h3><div class="chips"><span>Stripe</span><span>Razorpay</span><span>Shipping &amp; inventory tools</span><span>ERP / CRM</span><span>Marketing platforms</span></div></div>
+        <div class="skill-row"><h3>cms</h3><div class="chips"><span>Joomla</span><span>Squarespace</span></div></div>
+      </div>
+
+      <div class="grid edu" style="margin-top:40px">
+        <div class="card"><span class="kind">EDUCATION</span><h3>Master of Computer Applications (MCA)</h3><p>DAV Institute of Engineering and Technology, Jalandhar<br>Apr 2010 - Apr 2013</p></div>
+        <div class="card"><span class="kind">EDUCATION</span><h3>Bachelor of Computer Applications (BCA)</h3><p>APEEJAY College of Fine Arts, Jalandhar<br>Apr 2007 - Mar 2010</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">// contact</p>
+      <h2>Let's work together</h2>
+      <p>I'm open to new Shopify and e-commerce development roles. The best way to reach me is by email.</p>
+      <div class="btns" style="justify-content:center">
+        <a class="btn" href="mailto:surajvrm89@gmail.com">surajvrm89@gmail.com</a>
+        <a class="btn ghost" href="Suraj_Verma_CV.docx" download>Download CV</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><a class="logo foot-logo" href="#top" aria-label="Back to top" style="justify-content:center"><span class="braces" aria-hidden="true">{ }</span><span class="mono-badge" aria-hidden="true">SV</span><span class="name">SURAJ VERMA</span></a><br><a href="mailto:surajvrm89@gmail.com">surajvrm89@gmail.com</a><br>&copy; <span id="year"></span> Suraj Verma &middot; Mohali, India</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const btn = document.getElementById('theme');
+  const root = document.documentElement;
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    btn.textContent = t === 'dark' ? 'Light' : 'Dark';
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  setTheme(saved || 'dark');
+  btn.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.1 });
+    items.forEach(i => io.observe(i));
+  } else { items.forEach(i => i.classList.add('in')); }
+</script>
+</body>
+</html>
